@@ -1,0 +1,30 @@
+{
+    "name": "klipper/api-import-bundle",
+    "type": "symfony-bundle",
+    "description": "API Import bundle of Klipper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "François Pluchino",
+            "email": "francois.pluchino@klipper.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4.0|^8.0.0",
+        "klipper/api-bundle": "^2.0.0",
+        "klipper/import-bundle": "^2.0.0"
+    },
+    "autoload": {
+        "psr-4": { "Klipper\\Bundle\\ApiImportBundle\\": "" },
+        "exclude-from-classmap": [
+            "**/Tests/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    }
+}
