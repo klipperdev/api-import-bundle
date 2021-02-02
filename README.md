@@ -1,4 +1,4 @@
-Klipper Api Search Bundle
+Klipper Api Import Bundle
 =========================
 
 The Api Import bundle provides to simply import the sheet file in database for the API.
