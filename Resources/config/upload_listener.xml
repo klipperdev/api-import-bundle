@@ -5,10 +5,10 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="klipper_api_import.file_path_upload_listener_config.import"
-                 class="Klipper\Bundle\ApiBundle\Uploader\FilePathUploadListenerConfig"
+        <service id="klipper_api_import.uploader_name_config.import"
+                 class="Klipper\Component\Content\Config\UploaderNameConfig"
                  public="false">
-            <tag name="klipper_api.listener.file_path_upload_config" />
+            <tag name="klipper_content.uploader_name_config" />
             <argument>import</argument>
             <argument>Klipper\Component\Import\Model\ImportInterface</argument>
         </service>
