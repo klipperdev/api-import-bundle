@@ -30,6 +30,7 @@ class KlipperApiImportExtension extends Extension
     {
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('routing_metadata.xml');
+        $loader->load('controller.xml');
         $loader->load('upload_listener.xml');
     }
 }
