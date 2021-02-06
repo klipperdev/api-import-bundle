@@ -38,8 +38,6 @@ class StandardController
         MetadataManagerInterface $metadataManager,
         ObjectFactoryInterface $objectFactory
     ): Response {
-        set_time_limit(0);
-
         $class = $request->attributes->get('_action_class');
         $adapter = $request->attributes->get('_import_adapter');
 
