@@ -12,5 +12,12 @@
             <argument>import</argument>
             <argument>Klipper\Component\Import\Model\ImportInterface</argument>
         </service>
+
+        <service id="klipper_api_import.subscriber.import_upload_completed_message"
+                 class="Klipper\Bundle\ApiImportBundle\Listener\ImportUploadCompletedMessageSubscriber"
+                 public="false">
+            <tag name="kernel.event_subscriber" />
+            <argument type="service" id="Symfony\Component\Messenger\MessageBusInterface"/>
+        </service>
     </services>
 </container>
