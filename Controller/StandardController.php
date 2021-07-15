@@ -40,6 +40,7 @@ class StandardController
     ): Response {
         $class = $request->attributes->get('_action_class');
         $adapter = $request->attributes->get('_import_adapter');
+        $extra = $request->attributes->get('_import_extra');
 
         if (!$helper->isGranted(new PermVote('create'), $class)
             || !$helper->isGranted(new PermVote('update'), $class)
@@ -53,6 +54,7 @@ class StandardController
         $import->setStatus(current(ImportStatus::getValues()));
         $import->setAdapter($adapter);
         $import->setMetadata($metadataManager->get($class)->getName());
+        $import->setExtra($extra ?? []);
 
         $contentManager->upload('import', $import);
 
