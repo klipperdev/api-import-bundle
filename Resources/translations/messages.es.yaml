@@ -1,0 +1,2 @@
+# Import Metadata
+metadata.import.template_file.filename: 'Importar plantilla para {metadata}.{ext}'
