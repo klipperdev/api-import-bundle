@@ -80,7 +80,7 @@ class ImportMetadataController
                 ...$meta->getAssociations(),
             ];
 
-            usort($children, fn(ChildMetadataInterface $a, ChildMetadataInterface $b) => strcmp($a->getName(), $b->getName()));
+            usort($children, fn (ChildMetadataInterface $a, ChildMetadataInterface $b) => strcmp($a->getName(), $b->getName()));
 
             foreach ($children as $child) {
                 if (!$child->isReadOnly()) {
@@ -140,42 +140,60 @@ class ImportMetadataController
             case 'guid':
             case 'uuid':
                 $exampleValue = Uuid::uuid4()->toString();
+
                 break;
+
             case 'string':
                 $exampleValue = 'Text '.$this->generateRandomString(random_int(10, 20));
+
                 break;
+
             case 'boolean':
-                $exampleValue = 1 === rand(0, 1) ? 'TRUE' : 'FALSE';
+                $exampleValue = 1 === random_int(0, 1) ? 'TRUE' : 'FALSE';
+
                 break;
+
             case 'integer':
                 $exampleValue = random_int(1, 10000);
+
                 break;
+
             case 'float':
                 $exampleValue = (float) random_int(0, 10000) / 100;
+
                 break;
+
             case 'datetime':
                 $exampleValue = (new \DateTime())->format('Y-m-d');
+
                 break;
+
             case 'date':
                 $exampleValue = (new \DateTime())->format(\DateTime::ATOM);
+
                 break;
+
             case 'time':
                 $exampleValue = (new \DateTime())->format('H:i:s');
+
                 break;
+
             default:
                 $exampleValue = '';
+
                 break;
         }
 
         return $exampleValue;
     }
 
-    private function generateRandomString($length = 10): string {
+    private function generateRandomString($length = 10): string
+    {
         return substr(
             str_shuffle(
                 str_repeat(
-                    $x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
-                    ceil($length/strlen($x))
+                    $x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                    ceil($length / \strlen($x))
                 )
             ),
             1,
