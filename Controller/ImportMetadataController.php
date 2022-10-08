@@ -56,6 +56,7 @@ class ImportMetadataController
 
         $meta = $metadataManager->getByName($name);
         $class = $meta->getClass();
+        $fieldIdentifier = $meta->getFieldIdentifier();
         $filename = $translator->trans('metadata.import.template_file.filename', [
             '{metadata}' => $translator->trans($meta->getLabel(), [], $meta->getTranslationDomain()),
             '{ext}' => $ext,
@@ -83,7 +84,7 @@ class ImportMetadataController
             usort($children, fn (ChildMetadataInterface $a, ChildMetadataInterface $b) => strcmp($a->getName(), $b->getName()));
 
             foreach ($children as $child) {
-                if (!$child->isReadOnly()) {
+                if (!$child->isReadOnly() || $fieldIdentifier === $child->getName()) {
                     $exampleMeta = $child;
 
                     if ($child instanceof AssociationMetadataInterface) {
