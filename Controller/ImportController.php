@@ -34,9 +34,7 @@ class ImportController
      *     "id",
      *     class="App:Import"
      * )
-     *
      * @Route("/imports/{id}/retry", methods={"PUT"})
-     *
      * @Security("is_granted('perm:update', 'App\\Entity\\Import')")
      * @Security("is_granted('perm:import')")
      */
@@ -67,9 +65,7 @@ class ImportController
      *     "id",
      *     class="App:Import"
      * )
-     *
      * @Route("/imports/{id}/original", methods={"GET"})
-     *
      * @Security("is_granted('perm:view', 'App\\Entity\\Import')")
      * @Security("is_granted('perm:import')")
      */
@@ -94,9 +90,7 @@ class ImportController
      *     "id",
      *     class="App:Import"
      * )
-     *
      * @Route("/imports/{id}/result", methods={"GET"})
-     *
      * @Security("is_granted('perm:view', 'App\\Entity\\Import')")
      * @Security("is_granted('perm:import')")
      */

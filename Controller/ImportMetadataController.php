@@ -36,7 +36,6 @@ class ImportMetadataController
 {
     /**
      * @Route("/metadatas/{name}/import-template-file.{ext}", methods={"GET"}, requirements={"ext": "csv|ods|xls|xlsx"})
-     *
      * @Security("is_granted('perm:import')")
      */
     public function downloadImportTemplateAction(
